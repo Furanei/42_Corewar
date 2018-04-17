@@ -1,0 +1,7 @@
+./objects/
+corewar
+*.swp
+*.o
+*.a
+*.cor
+*_DONE

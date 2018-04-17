@@ -1,1 +1,0 @@
-gcc ../checker.c mainchecker.c ../asm.h
