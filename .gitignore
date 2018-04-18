@@ -1,0 +1,11 @@
+corewar
+asm
+dependencies
+objects
+*.swp
+*.o
+*.a
+*.d
+*.cor
+*_DONE
+*.dSYM/
