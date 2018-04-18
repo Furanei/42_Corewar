@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile_corewar                                   :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: enanrock <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/26 06:35:09 by enanrock          #+#    #+#              #
-#    Updated: 2018/04/17 08:28:14 by enanrock         ###   ########.fr        #
+#    Updated: 2018/04/18 15:53:11 by enanrock         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ FILES		:= main help_corewar set_options set_champ set_process change_op   \
 			open_files_and_complete_memory_space convert_pc_to_uint do_op      \
 			cycle_plus_plus set_op_tab dump test_argument_coding_bytes         \
 			live ld st add sub and or xor zjmp ldi sti fork_e lld lldi lfork_e \
-			aff
+			aff secure_define
 
 LIBFT_DIR	:= ../libft/
 SRC_DIR		:= ../sources/
@@ -79,12 +79,12 @@ clean:
 	@echo "\033[m""\c"
 
 fclean:
-	@make clean -f Makefile_corewar -C .
+	@make clean
 	@make $@ -C $(LIBFT_DIR)
 	@echo "\033[0;31m""\c"
 	@rm -fv ../$(NAME)
 	@echo "\033[m""\c"
 
 re:
-	@make fclean -f Makefile_corewar -C .
-	@make all -f Makefile_corewar -C .
+	@make fclean
+	@make all

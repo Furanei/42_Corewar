@@ -6,11 +6,20 @@
 /*   By: mbenjell <mbenjell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/16 16:47:22 by mbenjell          #+#    #+#             */
-/*   Updated: 2018/04/16 06:01:01 by mbenjell         ###   ########.fr       */
+/*   Updated: 2018/04/17 23:11:02 by mbenjell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
+
+void			ft_close(int *fd)
+{
+	if (*fd)
+	{
+		close(*fd);
+		*fd = 0;
+	}
+}
 
 int				main(int ac, char **av)
 {

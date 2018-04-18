@@ -6,7 +6,7 @@
 /*   By: enanrock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/11 11:18:01 by enanrock          #+#    #+#             */
-/*   Updated: 2018/04/17 06:10:24 by enanrock         ###   ########.fr       */
+/*   Updated: 2018/04/18 10:18:04 by enanrock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,20 @@ static void		you_win(t_mem *mem)
 static void		increment_deadline_to_die(t_mem *mem)
 {
 	mem->last_deadline_to_die = mem->deadline_to_die;
-	if (mem->current_nbr_live > NBR_LIVE)
+	if ((mem->current_cycle_to_die > CYCLE_DELTA)
+			&& (mem->current_nbr_live > NBR_LIVE))
+	{
 		mem->current_cycle_to_die -= CYCLE_DELTA;
-	else if ((mem->current_checks + 1) > MAX_CHECKS)
+		mem->current_checks = 0;
+	}
+	else if (((mem->current_cycle_to_die <= CYCLE_DELTA))
+			&& (mem->current_nbr_live > NBR_LIVE))
+	{
+		mem->current_cycle_to_die--;
+		mem->current_checks = 0;
+	}
+	else if (((mem->current_cycle_to_die > CYCLE_DELTA))
+			|| ((mem->current_checks + 1) > MAX_CHECKS))
 	{
 		mem->current_cycle_to_die--;
 		mem->current_checks = 0;
@@ -62,11 +73,13 @@ static void		fatality(t_mem *mem)
 
 	p_process = &(mem->process);
 	while (*p_process != NULL)
+	{
 		if (((t_local_memory *)((*p_process)->content))->last_live
 				< mem->last_deadline_to_die)
 			ft_lstdelhead(p_process, ft_simple_del);
 		else
 			p_process = &((*p_process)->next);
+	}
 	if (mem->process == NULL)
 	{
 		mem->is_end = TRUE;

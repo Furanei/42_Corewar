@@ -6,7 +6,7 @@
 /*   By: mbenjell <mbenjell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 03:42:56 by mbenjell          #+#    #+#             */
-/*   Updated: 2018/04/17 04:44:31 by mbenjell         ###   ########.fr       */
+/*   Updated: 2018/04/17 23:32:02 by mbenjell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ void		print_error_b(t_data *d)
 		ft_printf(2, "Argument invalide\n");
 	if (d->error == E_NO_ARG)
 		ft_printf(2, "Absence d'arguments\n");
+	if (d->error == E_BAD_REG)
+		ft_printf(2, "Numéro de registre invalide\n");
 }
 
 void		print_error(t_data *d)

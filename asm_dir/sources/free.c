@@ -6,7 +6,7 @@
 /*   By: mbenjell <mbenjell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 03:24:52 by mbenjell          #+#    #+#             */
-/*   Updated: 2018/04/16 23:03:11 by mbenjell         ###   ########.fr       */
+/*   Updated: 2018/04/17 23:10:11 by mbenjell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,5 @@ void			free_data(t_data *d)
 		free(d->arg);
 		d->arg = NULL;
 	}
+	ft_close(&d->fd);
 }

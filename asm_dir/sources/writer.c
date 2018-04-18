@@ -6,7 +6,7 @@
 /*   By: mbenjell <mbenjell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/08 00:07:50 by mbenjell          #+#    #+#             */
-/*   Updated: 2018/04/12 06:29:54 by mbenjell         ###   ########.fr       */
+/*   Updated: 2018/04/17 23:06:56 by mbenjell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,5 +108,6 @@ int				writer(t_data *d)
 		i = i->next;
 	}
 	ft_printf(0, "Écriture de la sortie du programme dans %s\n", d->file_cor);
+	ft_close(&d->fd_cor);
 	return (SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: enanrock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/11 14:03:09 by enanrock          #+#    #+#             */
-/*   Updated: 2018/04/17 05:12:14 by enanrock         ###   ########.fr       */
+/*   Updated: 2018/04/18 05:00:42 by enanrock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,17 @@ static unsigned int		get_register(t_local_memory *read_head, t_mem *mem,
 	if ((mem->memory_space[(var->pc + var->lag) % MEM_SIZE] == 0)
 			|| (mem->memory_space[(var->pc + var->lag) % MEM_SIZE]
 				> REG_NUMBER))
+	{
 		var->is_error_registers = TRUE;
-	var->arg[i][0] = mem->memory_space[(var->pc + var->lag) % MEM_SIZE];
-	var->arg[i][1] = convert_pc_to_uint(read_head->registers[var->arg[i][0]]);
-	var->arg[i][3] = var->arg[i][1];
+		var->arg[i][0] = mem->memory_space[(var->pc + var->lag) % MEM_SIZE];
+	}
+	else
+	{
+		var->arg[i][0] = mem->memory_space[(var->pc + var->lag) % MEM_SIZE];
+		var->arg[i][1] =
+			convert_pc_to_uint(read_head->registers[var->arg[i][0]]);
+		var->arg[i][3] = var->arg[i][1];
+	}
 	return (1);
 }
 
@@ -111,6 +118,7 @@ int						do_op(t_local_memory *read_head, t_mem *mem)
 {
 	t_var	var;
 
+	ft_bzero(&var, sizeof(t_var));
 	if (mem->op_tab[read_head->opcode].exist == FALSE)
 		return (1);
 	var.pc = convert_pc_to_uint(read_head->program_counter);

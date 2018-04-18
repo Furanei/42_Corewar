@@ -6,7 +6,7 @@
 #    By: enanrock <marvin42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/02 11:41:31 by enanrock          #+#    #+#              #
-#    Updated: 2018/04/17 08:34:12 by enanrock         ###   ########.fr        #
+#    Updated: 2018/04/18 04:13:01 by enanrock         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,10 +27,10 @@ LIB			:= $(addsuffix Makefile, $(LIBFT_DIR))
 all: $(LIB) author .gitignore .gitmodules $(NAME_ALL)
 
 $(NAME_001): $(LIB) always_do_it
-	@make $@ -C Makefiles -f Makefile_$(NAME_001)
+	@make $@ -C Makefiles
 
 clean: $(LIB)
-	@make $@ -C Makefiles -f Makefile_$(NAME_001)
+	@make $@ -C Makefiles
 ifneq ("$(OBJ_DIR)", "./")
 	@echo "\033[1;31m""\c"
 	@rm -fdv $(OBJ_DIR)
@@ -38,7 +38,7 @@ ifneq ("$(OBJ_DIR)", "./")
 endif
 
 fclean: $(LIB)
-	@make $@ -C Makefiles -f Makefile_$(NAME_001)
+	@make $@ -C Makefiles
 ifneq ("$(OBJ_DIR)", "./")
 	@echo "\033[1;31m""\c"
 	@rm -fdv $(OBJ_DIR)

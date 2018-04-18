@@ -6,7 +6,7 @@
 /*   By: mbenjell <mbenjell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/30 01:11:37 by mbenjell          #+#    #+#             */
-/*   Updated: 2018/04/16 23:37:27 by mbenjell         ###   ########.fr       */
+/*   Updated: 2018/04/17 23:30:53 by mbenjell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@ static int	extract_reg(t_data *d, int i)
 	ret = ft_watoi(&arg, &d->value[i]);
 	if ((ret == ERROR) && (d->error = E_NUMBER))
 		return (ERROR);
+	if (d->value[i] < 1 || d->value[i] > 16)
+	{
+		d->error = E_BAD_REG;
+		return (ERROR);
+	}
 	speed_space(&arg);
 	if (*arg && (d->error = E_ARG))
 		return (ERROR);

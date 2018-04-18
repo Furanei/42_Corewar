@@ -6,7 +6,7 @@
 /*   By: mbenjell <mbenjell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/24 19:23:26 by mbenjell          #+#    #+#             */
-/*   Updated: 2018/04/17 04:43:36 by mbenjell         ###   ########.fr       */
+/*   Updated: 2018/04/17 23:31:06 by mbenjell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@
 # define E_OPEN_FILE			17
 # define E_ARG					18
 # define E_NO_ARG				19
+# define E_BAD_REG				20
 
 # define T1						0xC901
 # define T2						0x1006
@@ -174,6 +175,7 @@ int								ft_error(t_data *d);
 int								ft_usage(void);
 
 void							free_data(t_data *d);
+void							ft_close(int *fd);
 
 extern t_op						g_op_tab[17];
 

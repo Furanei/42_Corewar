@@ -6,7 +6,7 @@
 /*   By: enanrock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/31 15:18:18 by enanrock          #+#    #+#             */
-/*   Updated: 2018/04/16 22:50:29 by enanrock         ###   ########.fr       */
+/*   Updated: 2018/04/18 15:19:19 by enanrock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,9 @@ static int		initialize(t_mem *mem, int argc, char **argv)
 	ft_bzero(mem, sizeof(t_mem));
 	initialize_mem_champ_ids(mem);
 	set_op_tab(mem);
-	i = 0;
-	while (++i < argc)
+	i = 1;
+	while (i < argc)
+	{
 		if (argv[i][0] == '-')
 		{
 			if (set_options(argv, &i, argc, mem) == ERROR)
@@ -48,6 +49,8 @@ static int		initialize(t_mem *mem, int argc, char **argv)
 		}
 		else if (set_champ(argv[i], mem) == ERROR)
 			return (ERROR);
+		i++;
+	}
 	if (open_files_and_complete_memory_space(mem) == ERROR)
 		return (ERROR);
 	if (set_process(mem) == ERROR)
@@ -78,6 +81,8 @@ int				main(int argc, char **argv)
 		terminate(&mem);
 		return (0);
 	}
+	if (secure_define() == ERROR)
+		return (0);
 	if (initialize(&mem, argc, argv) == ERROR)
 	{
 		terminate(&mem);
@@ -87,7 +92,8 @@ int				main(int argc, char **argv)
 	{
 		cycle_plus_plus(&mem);
 		if ((mem.option_dump != DUMP_NOPE)
-				&& ((mem.cycles % mem.value_dump) == 0))
+				&& ((mem.value_dump == 0)
+					|| (mem.cycles % mem.value_dump) == 0))
 			dump(&mem);
 	}
 	terminate(&mem);

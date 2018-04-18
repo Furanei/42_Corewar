@@ -6,7 +6,7 @@
 /*   By: mbenjell <mbenjell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 19:19:34 by mbenjell          #+#    #+#             */
-/*   Updated: 2018/02/10 03:01:30 by mbenjell         ###   ########.fr       */
+/*   Updated: 2018/04/17 22:05:34 by mbenjell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 static int	new_buff(t_gnl *s)
 {
-	free(s->buff_init);
+	ft_strdel(&(s->buff_init));
 	if (!(s->buff = (char*)malloc(sizeof(char) * BUFF_SIZE)))
 		return (-1);
 	s->buff_init = s->buff;
 	s->nb = read(s->fd, s->buff, BUFF_SIZE);
 	if (s->nb == -1)
 	{
-		ft_strdel(&(s->buff_init));
+		ft_strdel(&(s->buff));
 		return (-1);
 	}
 	if (!s->nb)
 	{
-		ft_strdel(&(s->buff_init));
+		ft_strdel(&(s->buff));
 		return (0);
 	}
 	return (1);
