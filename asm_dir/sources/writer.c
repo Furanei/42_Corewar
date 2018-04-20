@@ -6,7 +6,7 @@
 /*   By: mbenjell <mbenjell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/08 00:07:50 by mbenjell          #+#    #+#             */
-/*   Updated: 2018/04/17 23:06:56 by mbenjell         ###   ########.fr       */
+/*   Updated: 2018/04/19 11:59:14 by mbenjell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ int				writer(t_data *d)
 {
 	t_instr		*i;
 
-	d->fd_cor = open(d->file_cor, O_CREAT | O_WRONLY, 0644);
+	d->fd_cor = open(d->file_cor, O_CREAT | O_WRONLY | O_TRUNC, 0644);
 	if (d->fd_cor == -1)
 		return (ERROR);
 	lg_champion(d);

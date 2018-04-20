@@ -6,7 +6,7 @@
 /*   By: enanrock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/15 21:11:33 by enanrock          #+#    #+#             */
-/*   Updated: 2018/04/18 16:33:18 by enanrock         ###   ########.fr       */
+/*   Updated: 2018/04/19 23:01:05 by enanrock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void		show_process(t_mem *mem, unsigned int i)
 
 static void		mini_header(unsigned int i)
 {
-	if ((i < MEM_SIZE) && (i % 32) == 0)
+	if ((i < MEM_SIZE) && (i % 64) == 0)
 	{
 		ft_putstr("\n0x");
 		if (i < 0x10)

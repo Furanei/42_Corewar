@@ -6,7 +6,7 @@
 /*   By: enanrock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/11 11:18:01 by enanrock          #+#    #+#             */
-/*   Updated: 2018/04/18 10:18:04 by enanrock         ###   ########.fr       */
+/*   Updated: 2018/04/19 23:28:05 by enanrock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,7 @@ static void		increment_deadline_to_die(t_mem *mem)
 	}
 	else if (((mem->current_cycle_to_die <= CYCLE_DELTA))
 			&& (mem->current_nbr_live > NBR_LIVE))
-	{
-		mem->current_cycle_to_die--;
-		mem->current_checks = 0;
-	}
+		mem->current_checks++;
 	else if (((mem->current_cycle_to_die > CYCLE_DELTA))
 			|| ((mem->current_checks + 1) > MAX_CHECKS))
 	{

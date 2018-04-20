@@ -6,7 +6,7 @@
 #    By: enanrock <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/26 06:35:09 by enanrock          #+#    #+#              #
-#    Updated: 2018/04/18 22:35:22 by enanrock         ###   ########.fr        #
+#    Updated: 2018/04/19 19:45:58 by enanrock         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ FILES		:= main help_corewar set_options set_champ set_process change_op   \
 			open_files_and_complete_memory_space convert_pc_to_uint do_op      \
 			cycle_plus_plus set_op_tab dump test_argument_coding_bytes         \
 			live ld st add sub and or xor zjmp ldi sti fork_e lld lldi lfork_e \
-			aff secure_define
+			aff secure_define check_the_header
 
 LIBFT_DIR	:= ../libft/
 SRC_DIR		:= ../sources/
@@ -30,8 +30,7 @@ DEP			:= $(addprefix $(DEP_DIR), $(addsuffix .d, $(FILES)))
 
 LIB_FLAGS	:= -L$(LIBFT_DIR) -lft
 
-GCC_FLAGS	:= -Wall -Wextra -Werror -I$(HDR_DIR) -I$(LIBFT_DIR)               \
-#			-g -fsanitize=address
+GCC_FLAGS	:= -Wall -Wextra -Werror -I$(HDR_DIR) -I$(LIBFT_DIR)
 
 .PHONY:	all leaks clean fclean re always_do_it
 
@@ -51,7 +50,7 @@ $(NAME): ../$(NAME)
 	@echo "\033[1;36m""flags i use are ""\033[0;36m""$(GCC_FLAGS)""\033[m"
 	@echo "\033[1;36m""and ""\033[0;36m""$(LIB_FLAGS)""\033[1;36m"" too, ""\c"
 	@echo "but only when i link $@""\033[m"
-	cp $@ ../../$@
+	@cp $@ ../../$@
 
 $(DEP_DIR)%.d: $(SRC_DIR)%.c
 	@mkdir -p $(DEP_DIR) 2> /tmp/a.del

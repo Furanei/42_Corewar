@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   open_files_and_complete_memory_space.h             :+:      :+:    :+:   */
+/*   check_the_header.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enanrock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/24 14:23:17 by enanrock          #+#    #+#             */
-/*   Updated: 2018/04/19 17:56:40 by enanrock         ###   ########.fr       */
+/*   Created: 2018/04/19 17:57:49 by enanrock          #+#    #+#             */
+/*   Updated: 2018/04/19 18:46:56 by enanrock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OPEN_FILES_AND_COMPLETE_MEMORY_SPACE_H
-# define OPEN_FILES_AND_COMPLETE_MEMORY_SPACE_H
-
-# include <fcntl.h>
+#ifndef CHECK_THE_HEADER_H
+# define CHECK_THE_HEADER_H
 
 # include <sys/types.h>
 # include <sys/uio.h>
 # include <unistd.h>
 
 # include "mem.h"
-# include "check_the_header.h"
+# include "libft.h"
 
-int		open_files_and_complete_memory_space(t_mem *mem);
+int		check_the_header(t_mem *mem, int fd, unsigned int i,
+		ssize_t *length_code);
 
 #endif

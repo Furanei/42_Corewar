@@ -6,7 +6,7 @@
 #    By: mbenjell <mbenjell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/26 20:35:11 by mbenjell          #+#    #+#              #
-#    Updated: 2018/04/17 08:44:36 by enanrock         ###   ########.fr        #
+#    Updated: 2018/04/19 13:21:40 by mbenjell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,8 +30,6 @@ SRC		:= ft_memset.c \
 		ft_strlcat.c \
 		ft_strchr.c \
 		ft_strrchr.c \
-		ft_strstr.c \
-		ft_strnstr.c \
 		ft_strcmp.c \
 		ft_strncmp.c \
 		ft_atoi.c \
